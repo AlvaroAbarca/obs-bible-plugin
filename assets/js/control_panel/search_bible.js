@@ -1,3 +1,7 @@
+
+const submitButton = document.getElementById("bible-submit");
+const inputField = document.getElementById("bible-input");
+
 function ensureEndsWithColon(str) {
     if (str.includes(':')) {
         return str;  // Return the string as is if it contains a colon
@@ -133,7 +137,6 @@ function getBibeAri(query) {
 }
 
 
-const submitButton = document.getElementById("bible-submit");
 submitButton.addEventListener("click", function (event) {
   event.preventDefault();
 
@@ -147,7 +150,6 @@ submitButton.addEventListener("click", function (event) {
 });
 
 
-const inputField = document.getElementById("bible-input");
 
 inputField.addEventListener("keydown", function(event) {
   if (event.key === "Enter") {
