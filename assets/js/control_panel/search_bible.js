@@ -7,7 +7,7 @@ function ensureEndsWithColon(str) {
     return str;
 }
 
-function searchBible(query) {
+function searchBible(query, bible_data) {
   bblVerseDiv.innerHTML = "";
   let savedBibleVerse = [];
   const lowercaseQuery = query.toLowerCase();
@@ -141,7 +141,7 @@ submitButton.addEventListener("click", function (event) {
   const searchQuery = inputField.value.trim();
 
   if (searchQuery !== "") {
-    searchBible(searchQuery);
+    searchBible(searchQuery, bible_data);
     displayBible();
   }
 });
@@ -154,7 +154,7 @@ inputField.addEventListener("keydown", function(event) {
     const searchQuery = inputField.value.trim();
 
     if (searchQuery !== "") {
-      searchBible(searchQuery);
+      searchBible(searchQuery, bible_data);
       displayBible();
     }
   }
