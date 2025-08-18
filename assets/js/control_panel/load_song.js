@@ -1,6 +1,14 @@
-const  splitAndOrganizeText = (text) => {
-    const verses = text.split('\r\n\r\n');
+function splitSongVerses(text) {
+  const platform = navigator.userAgentData 
+    || navigator.userAgentData.platform;
+    
+  const delimiter = /Win/i.test(platform) ? "\r\n\r\n" : "\n\n";
+  return text.split(delimiter);
+}
 
+const  splitAndOrganizeText = (text) => {
+    // const verses = text.split('\r\n\r\n');
+    const verses = splitSongVerses(text);
     const container = document.getElementById('song-display');
     const songDiv = document.getElementById('song');
 
