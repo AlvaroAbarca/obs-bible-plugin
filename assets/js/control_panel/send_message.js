@@ -96,7 +96,7 @@ const displaySongVerseByVerse = () => {
       
       verse.addEventListener("click", (event) => {
         let displayLineByLine = document.getElementById("obs-bible-display-song-line-by-line");
-        console.log("displayLineByLine.checked: ", displayLineByLine.checked);
+        
         if (displayLineByLine.checked === false){
           currentSongVerse = verse;
           currentSongVerseIndex = index;
@@ -237,29 +237,13 @@ const displaySongLineByLine = ()=>{
 
   songLines.forEach((line, index) => {
 
-    // line.addEventListener("click", (event) => {
-    //   var evt = event || window.event;
-    //   evt.stopPropagation ? evt.stopPropagation() : evt.cancelBubble = true;
-    //   console.log("event.target: ", event.target);
-    //   console.log(line);
-    // });
-
     line.addEventListener("click", (event) => {
-      try {
-        console.log(event);
-      } catch (error) {
-        console.error("Error in event handler:", error);
-      }
-      console.log(event);
       const displayLineByLine = document.getElementById("obs-bible-display-song-line-by-line");
-      
-      console.log("displayLineByLine.checked", displayLineByLine.checked)
       
       if (displayLineByLine.checked === true){
         currentLine = line;
         currentLineIndex = index;
-        console.log("currentlineindex = " + currentLineIndex);
-
+        
         if (event.target.tagName === "P") {
           const message = processMessage(event.target.innerHTML);
           sendMessage(channel, message);
@@ -275,7 +259,6 @@ const displaySongLineByLine = ()=>{
   });
 
   const moveToPreviousLine = ()=>{
-    console.log("In Previous " + currentLineIndex);
     if(currentLineIndex > 0){
       currentLineIndex--;
       const message = songLines[currentLineIndex].innerText;
@@ -589,5 +572,4 @@ document.addEventListener('keyup', doc_spaceBarUp, false);
 document.addEventListener("click", function(event) {
     // Get the element that was clicked
     const clickedElement = event.target;
-    console.log("You clicked on:", clickedElement);
 });
