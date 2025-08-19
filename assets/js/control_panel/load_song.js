@@ -1,8 +1,9 @@
 function splitSongVerses(text) {
-  const platform = navigator.userAgentData 
+  const navigatorAgentData = navigator.userAgentData 
     || navigator.userAgentData.platform;
     
-  const delimiter = /Win/i.test(platform) ? "\r\n\r\n" : "\n\n";
+  const delimiter = /Win/i.test(navigatorAgentData) || navigatorAgentData.platform.toLowerCase() == "windows" ? "\r\n\r\n" : "\n\n";
+  console.log(navigatorAgentData, delimiter);
   return text.split(delimiter);
 }
 
